@@ -1,0 +1,14 @@
+DeepSORT PyTorch refers to an implementation of the DeepSORT (Deep Simple Online Realtime Tracking) algorithm using the PyTorch deep learning framework. 
+
+DeepSORT is a robust multi-object tracking algorithm that extends the original SORT (Simple Online Realtime Tracking) algorithm. While SORT relies on motion cues (Kalman filter and Hungarian algorithm) for associating object detections across frames, DeepSORT enhances this by incorporating a deep learning-based appearance feature. This appearance feature is typically extracted by a Convolutional Neural Network (CNN) trained for re-identification (Re-ID), allowing the tracker to better handle occlusions and maintain object identities even when motion cues are weak. 
+
+Key components of DeepSORT PyTorch: 
+
+• Object Detector: A deep learning model (e.g., YOLOv5, YOLOv8, Faster R-CNN) detects objects in each frame of a video. 
+• Appearance Feature Extractor (Re-ID Model): A CNN, implemented in PyTorch, extracts a unique feature vector (embedding) from each detected object. This feature vector captures the object's appearance. 
+• Kalman Filter: Predicts the future state (position and velocity) of each tracked object based on its past movement. 
+• Hungarian Algorithm: Solves the assignment problem, matching current detections to existing tracks using both motion and appearance information. 
+• Track Management: Handles the creation of new tracks, updating existing tracks with new detections, and terminating tracks that are no longer detected. 
+
+In essence, DeepSORT PyTorch combines the power of deep learning for object detection and re-identification with classical tracking techniques to achieve accurate and robust multi-object tracking in real-time. The "PyTorch" aspect specifically indicates that the deep learning components (detector and Re-ID model) are implemented and run within the PyTorch ecosystem. 
+
